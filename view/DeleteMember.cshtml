@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "DeleteMember";
+}
+
+<h2>會員刪除</h2>
+
+<form action="@Url.Action("DeleteMember")" method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">帳號密碼確認</div>
+        <div class="panel-body">
+            <p>
+                帳號:<input type="text" class="form-control" name="userId" required />
+            </p>
+            <p>
+                密碼:<input type="password" class="form-control" name="userPwd" required />
+            </p>
+            <p>
+                <input type="submit" value="確認" class="btn btn-primary" />
+            </p>
+            <p class="text-danger">@ViewBag.error</p>
+        </div>
+    </div>
+</form>
