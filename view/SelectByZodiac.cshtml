@@ -1,0 +1,20 @@
+﻿@model prjZodiac.Models.ZodiacClass
+@{
+    ViewBag.Title = "星座查詢";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="@Url.Action("ShowSelectResult")" method="post">
+    <p>
+        <select name="zodiacName" class="form-control">
+            @foreach (var item in Model.zodiacs)
+            {
+                <option>@item.zName</option>
+
+            }
+        </select>
+    </p>
+    <p><input type="submit" value="查詢" /></p>
+    
+</form>
