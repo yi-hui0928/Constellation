@@ -1,0 +1,55 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prjZodiac.Models.TabletZodiacs1081639>
+
+@{
+    ViewBag.Title = "星座首頁";
+}
+
+<h2> @ViewBag.Title </h2>
+
+<p><h4> @ViewBag.userName 歡迎蒞臨 </h4></p>
+<table class="table">
+    <tr>
+        <th>
+            星座名稱
+        </th>
+        <th>
+            愛情運勢
+        </th>
+        <th>
+            事業運勢
+        </th>
+        <th>
+            財運
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.zName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.love)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.business)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.money)
+            </td>
+
+
+            <td>
+                <a href="/home/introduce?zId=@item.zId" class="btn btn-warning">詳細介紹</a>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
