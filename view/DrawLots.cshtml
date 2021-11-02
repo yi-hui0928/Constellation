@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "來抽籤看看自己的運氣吧!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="@Url.Action("DrawLots")" method="post">
+    <div>
+        <p>
+            <img src="../images/籤筒.png" width="250" height="300"/>
+        </p>
+        <p>
+            @{ 
+                Random rnd = new Random();
+                int i = rnd.Next(0, 5);
+                string[] result = new string[] { "大吉", "吉", "普通", "凶", "大凶" };
+                ViewBag.result = result[i];
+            }
+            <input type="submit" name="name" value="抽籤" class="btn btn-primary" 
+                   onclick="return confirm('您的運勢為 @ViewBag.result');"/>
+        </p>
+
+    </div>
+</form>
+
