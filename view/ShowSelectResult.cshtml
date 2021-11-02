@@ -1,0 +1,47 @@
+﻿@model prjZodiac.Models.ZodiacClass
+
+@{
+    ViewBag.Title = "查詢結果";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+
+    @foreach (var item in Model.zodiacs)
+    {
+        <tr>
+            <td>
+                @item.zName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>特色:</strong>
+                @item.feature
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>愛情運勢:</strong>
+                @item.love
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>事業運勢:</strong>
+                @item.business
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>財運:</strong>
+                @item.money
+            </td>
+        </tr>
+        ViewBag.show = $"../images/{item.zName}.jpg";
+    }
+
+</table>
+
+<img src="@ViewBag.show" />
