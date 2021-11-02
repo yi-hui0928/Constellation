@@ -1,0 +1,23 @@
+﻿@model prjZodiac.Models.ZodiacClass
+
+<table class="table">
+
+    @foreach (var item in Model.zodiacs)
+    {
+        <tr>
+            <td><h2>@item.zName</h2>介紹</td>
+        </tr>
+        <tr>
+            <td>@item.feature</td>
+        </tr>
+        <tr>
+            @{ 
+                ViewBag.zId = $"../images/{item.zId}.png";
+            }
+            <td><img src="@ViewBag.zId"</td>
+        </tr>
+    }
+    
+
+
+</table>
